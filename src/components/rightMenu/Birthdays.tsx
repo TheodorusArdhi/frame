@@ -34,7 +34,7 @@ const Birthdays = () => {
             Upcoming Birthdays
           </span>
           <span className="text-gray-700">
-            See other 16 have upcoming birthdays
+            See other 5 have upcoming birthdays
           </span>
         </Link>
       </div>
