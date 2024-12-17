@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const MobileNavBar = () => {
+const MobileNavBar = ({username} : {username:String}) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="md:hidden">
       <div
@@ -32,7 +33,7 @@ const MobileNavBar = () => {
           <Link href="/">Home</Link>
           <Link href="/">Friends</Link>
           <Link href="/">Group</Link>
-          <Link href="/">Stories</Link>
+          <Link href={`/profile/${username}`}>Profile</Link>
           <Link href="/sign-in">Login</Link>
         </div>
       )}

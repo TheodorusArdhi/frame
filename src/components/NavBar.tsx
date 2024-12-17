@@ -8,8 +8,24 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import prisma from "@/lib/client";
 
-const NavBar = () => {
+const NavBar = async () => {
+  const { userId }: { userId: string | null } = await auth();
+
+  if (!userId) return null;
+
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+    select: {
+      username: true,
+    },
+  });
+
+  if (!user) return null;
   return (
     <div className="h-16 flex items-center justify-between">
       {/* left */}
@@ -116,7 +132,7 @@ const NavBar = () => {
             </div>
           </SignedOut>
         </ClerkLoaded>
-        <MobileNavBar />
+        <MobileNavBar username={user.username} />
       </div>
     </div>
   );
