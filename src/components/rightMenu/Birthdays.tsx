@@ -12,13 +12,13 @@ const Birthdays = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src="https://images.pexels.com/photos/18207381/pexels-photo-18207381/free-photo-of-window-in-bar.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+            src="https://images.pexels.com/photos/29715958/pexels-photo-29715958/free-photo-of-wanita-mengambil-foto-di-pantai-pinggir-laut.png?auto=compress&cs=tinysrgb&w=600&lazy=load"
             alt=""
             width={40}
             height={40}
             className="w-10 h-10 rounded-full object-cover"
           />
-          <span className="font-medium">Wayne Burton</span>
+          <span className="font-medium">Mark Nolan</span>
         </div>
         <div className="flex gap-3 justify-end">
           <button className="bg-emerald-500 text-white text-sm px-2 py-1 rounded-md hover:shadow-red-300 cursor-default">
