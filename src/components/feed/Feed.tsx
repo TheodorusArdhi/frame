@@ -6,7 +6,7 @@ const Feed = async ({ username }: { username?: string }) => {
   const { userId }: { userId: string | null } = await auth();
 
   let posts: any[] = [];
-  
+
   // for profile page
   if (username) {
     posts = await prisma.post.findMany({
@@ -36,24 +36,43 @@ const Feed = async ({ username }: { username?: string }) => {
 
   // for homepage
   if (!username && userId) {
-    const following = await prisma.follower.findMany({
-      where: {
-        followerId: userId,
-      },
-      select: {
-        followingId: true,
-      },
-    });
+    // const following = await prisma.follower.findMany({
+    //   where: {
+    //     followerId: userId,
+    //   },
+    //   select: {
+    //     followingId: true,
+    //   },
+    // });
 
-    const followingIds = following.map((f) => f.followingId);
-    const ids = [userId, ...followingIds];
+    // const followingIds = following.map((f) => f.followingId);
+    // const ids = [userId, ...followingIds];
+
+    // posts = await prisma.post.findMany({
+    //   where: {
+    //     userId: {
+    //       in: ids,
+    //     },
+    //   },
+    //   include: {
+    //     user: true,
+    //     likes: {
+    //       select: {
+    //         userId: true,
+    //       },
+    //     },
+    //     _count: {
+    //       select: {
+    //         comments: true,
+    //       },
+    //     },
+    //   },
+    //   orderBy: {
+    //     createdAt: "desc",
+    //   },
+    // });
 
     posts = await prisma.post.findMany({
-      where: {
-        userId: {
-          in: ids,
-        },
-      },
       include: {
         user: true,
         likes: {
