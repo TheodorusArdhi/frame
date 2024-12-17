@@ -19,6 +19,7 @@ const FriendRequestList = ({ requests }: { requests: RequestWithUser[] }) => {
       setRequestState((prev) => prev.filter((req) => req.id !== requestId));
     } catch (err) {}
   };
+  
   const decline = async (requestId: number, userId: string) => {
     removeOptimisticRequest(requestId);
     try {
