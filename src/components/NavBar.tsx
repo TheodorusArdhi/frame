@@ -90,7 +90,7 @@ const NavBar = async () => {
         </ClerkLoading>
         <ClerkLoaded>
           <SignedIn>
-            <div className="cursor-pointer">
+            <div className="cursor-default">
               <Image
                 src="/people.png"
                 alt="signed out"
@@ -99,7 +99,7 @@ const NavBar = async () => {
                 className="w-6 h-6"
               />
             </div>
-            <div className="cursor-pointer">
+            <div className="cursor-default">
               <Image
                 src="/messages.png"
                 alt="signed out"
@@ -108,7 +108,7 @@ const NavBar = async () => {
                 className="w-6 h-6"
               />
             </div>
-            <div className="cursor-pointer">
+            <div className="cursor-default">
               <Image
                 src="/notifications.png"
                 alt="signed out"
