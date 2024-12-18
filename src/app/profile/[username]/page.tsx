@@ -1,6 +1,7 @@
 import Feed from "@/components/feed/Feed";
 import LeftMenu from "@/components/leftMenu/LeftMenu";
 import RightMenu from "@/components/rightMenu/RightMenu";
+import UpdateUser from "@/components/rightMenu/UpdateUser";
 import prisma from "@/lib/client";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
@@ -67,7 +68,17 @@ const ProfilePage = async ({ params }: { params: { username: string } }) => {
                 height={200}
                 className="w-28 h-28 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white object-cover"
               />
+              <div className="md:hidden p-1 mt-3 absolute mx-4 rounded-md bg-slate-50 bg-opacity-15">
+                {currentUserId === user.id ? (
+                  <UpdateUser user={user} />
+                ) : (
+                  <span className="text-emerald-500 text-sm  ">
+                    See all
+                  </span>
+                )}
+              </div>
             </div>
+
             <h1 className="mt-20 mb-4 text-2xl font-semibold">
               {user.name && user.surname
                 ? user.name + " " + user.surname

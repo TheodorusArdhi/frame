@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const MobileNavBar = ({username} : {username:String}) => {
+const MobileNavBar = ({ username }: { username: String }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -29,10 +29,13 @@ const MobileNavBar = ({username} : {username:String}) => {
         />
       </div>
       {isOpen && (
-        <div className="absolute left-0 top-24 w-full h-[calc(100vh-96px)] bg-white flex flex-col items-center justify-center gap-8 text-xl font-medium z-10 text-emerald-500">
-          <Link href="/">Home</Link>
-          <Link href="/">Friends</Link>
-          <Link href="/">Group</Link>
+        <div
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="absolute left-0 top-24 w-full h-[calc(100vh-96px)] bg-white flex flex-col items-center justify-center gap-8 text-xl font-medium z-10 text-emerald-500"
+        >
+          <Link href="/" className="cursor-default">Home</Link>
+          <Link href="/" className="cursor-default">Friends</Link>
+          <Link href="/" className="cursor-default">Group</Link>
           <Link href={`/profile/${username}`}>Profile</Link>
           <Link href="/sign-in">Login</Link>
         </div>
